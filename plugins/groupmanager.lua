@@ -1,4 +1,4 @@
--- groupmanager.lua by @BeyondTeam
+
 local function modadd(msg)
     -- superuser and admins only (because sudo are always has privilege)
     if not is_admin(msg) then
@@ -507,7 +507,7 @@ if not is_mod(msg) then
 end
 local data = load_data(_config.moderation.data)
 local settings = data[tostring(target)]["settings"] 
-text = "*Group Settings:*\n_Lock edit :_ *"..settings.lock_edit.."*\n_Lock links :_ *"..settings.lock_link.."*\n_Lock tags :_ *"..settings.lock_tag.."*\n_Lock Join :_ *"..settings.lock_join.."*\n_Lock flood :_ *"..settings.flood.."*\n_Lock spam :_ *"..settings.lock_spam.."*\n_Lock mention :_ *"..settings.lock_mention.."*\n_Lock arabic :_ *"..settings.lock_arabic.."*\n_Lock webpage :_ *"..settings.lock_webpage.."*\n_Lock markdown :_ *"..settings.lock_markdown.."*\n_Group welcome :_ *"..settings.welcome.."*\n_Lock pin message :_ *"..settings.lock_pin.."*\n_Bots protection :_ *"..settings.lock_bots.."*\n_Flood sensitivity :_ *"..settings.num_msg_max.."*\n_Character sensitivity :_ *"..settings.set_char.."*\n_Flood check time :_ *"..settings.time_check.."*\n*____________________*\n*Bot Channel*: @BeyondTeam"
+text = "*Group Settings:*\n_Lock edit :_ *"..settings.lock_edit.."*\n_Lock links :_ *"..settings.lock_link.."*\n_Lock tags :_ *"..settings.lock_tag.."*\n_Lock Join :_ *"..settings.lock_join.."*\n_Lock flood :_ *"..settings.flood.."*\n_Lock spam :_ *"..settings.lock_spam.."*\n_Lock mention :_ *"..settings.lock_mention.."*\n_Lock arabic :_ *"..settings.lock_arabic.."*\n_Lock webpage :_ *"..settings.lock_webpage.."*\n_Lock markdown :_ *"..settings.lock_markdown.."*\n_Group welcome :_ *"..settings.welcome.."*\n_Lock pin message :_ *"..settings.lock_pin.."*\n_Bots protection :_ *"..settings.lock_bots.."*\n_Flood sensitivity :_ *"..settings.num_msg_max.."*\n_Character sensitivity :_ *"..settings.set_char.."*\n_Flood check time :_ *"..settings.time_check.."*\n*____________________*"
 text = string.gsub(text, 'yes', '✅')
 text = string.gsub(text, 'no', '❌')
 text = string.gsub(text, '0', '0⃣')
@@ -898,13 +898,13 @@ if not is_mod(msg) then
 end
 local data = load_data(_config.moderation.data)
 local mutes = data[tostring(target)]["mutes"] 
- text = " *Group Mute List* : \n_Mute all : _ *"..mutes.mute_all.."*\n_Mute gif :_ *"..mutes.mute_gif.."*\n_Mute text :_ *"..mutes.mute_text.."*\n_Mute photo :_ *"..mutes.mute_photo.."*\n_Mute video :_ *"..mutes.mute_video.."*\n_Mute audio :_ *"..mutes.mute_audio.."*\n_Mute voice :_ *"..mutes.mute_voice.."*\n_Mute sticker :_ *"..mutes.mute_sticker.."*\n_Mute contact :_ *"..mutes.mute_contact.."*\n_Mute forward :_ *"..mutes.mute_forward.."*\n_Mute location :_ *"..mutes.mute_location.."*\n_Mute document :_ *"..mutes.mute_document.."*\n_Mute TgService :_ *"..mutes.mute_tgservice.."*\n*____________________*\n*Bot Channel*: @BeyondTeam"
+ text = " *Group Mute List* : \n_Mute all : _ *"..mutes.mute_all.."*\n_Mute gif :_ *"..mutes.mute_gif.."*\n_Mute text :_ *"..mutes.mute_text.."*\n_Mute photo :_ *"..mutes.mute_photo.."*\n_Mute video :_ *"..mutes.mute_video.."*\n_Mute audio :_ *"..mutes.mute_audio.."*\n_Mute voice :_ *"..mutes.mute_voice.."*\n_Mute sticker :_ *"..mutes.mute_sticker.."*\n_Mute contact :_ *"..mutes.mute_contact.."*\n_Mute forward :_ *"..mutes.mute_forward.."*\n_Mute location :_ *"..mutes.mute_location.."*\n_Mute document :_ *"..mutes.mute_document.."*\n_Mute TgService :_ *"..mutes.mute_tgservice.."*\n*____________________*"
 text = string.gsub(text, 'yes', '✅')
 text = string.gsub(text, 'no', '❌')
  return text
 end
 
-local function BeyondTeam(msg, matches)
+local function iborn(msg, matches)
 local data = load_data(_config.moderation.data)
 local target = msg.to.id
 ----------------Begin Msg Matches--------------
@@ -956,6 +956,9 @@ if matches[1] == "res" and matches[2] and is_mod(msg) then
 end
 if matches[1] == 'beyond' then
 return _config.info_text
+end
+if matches[1] == 'test' then
+return "test : (msg.to.id)"
 end
 if matches[1] == "id" then
    if not matches[2] and not msg.reply_to_message then
@@ -1465,7 +1468,7 @@ end
   end
   if matches[1] == "rules" then
  if not data[tostring(target)]['rules'] then
-     rules = "ℹ️ The Default Rules :\n1⃣ No Flood.\n2⃣ No Spam.\n3⃣ No Advertising.\n4⃣ Try to stay on topic.\n5⃣ Forbidden any racist, sexual, homophobic or gore content.\n➡️ Repeated failure to comply with these rules will cause ban.\n@BeyondTeam"
+     rules = "ℹ️ The Default Rules :\n1⃣ No Flood.\n2⃣ No Spam.\n3⃣ No Advertising.\n4⃣ Try to stay on topic.\n5⃣ Forbidden any racist, sexual, homophobic or gore content.\n➡️ Repeated failure to comply with these rules will cause ban."
         else
      rules = "*Group Rules :*\n"..data[tostring(target)]['rules']
       end
@@ -1870,7 +1873,7 @@ setChatPhoto(msg.to.id, gpPhotoFile)
  if data[tostring(msg.to.id)]['rules'] then
 rules = data[tostring(msg.to.id)]['rules']
 else
-     rules = "ℹ️ The Default Rules :\n1⃣ No Flood.\n2⃣ No Spam.\n3⃣ No Advertising.\n4⃣ Try to stay on topic.\n5⃣ Forbidden any racist, sexual, homophobic or gore content.\n➡️ Repeated failure to comply with these rules will cause ban.\n@BeyondTeam"
+     rules = "ℹ️ The Default Rules :\n1⃣ No Flood.\n2⃣ No Spam.\n3⃣ No Advertising.\n4⃣ Try to stay on topic.\n5⃣ Forbidden any racist, sexual, homophobic or gore content.\n➡️ Repeated failure to comply with these rules will cause ban."
 end
 if msg.newuser.username then
 user_name = "@"..check_markdown(msg.newuser.username)
@@ -1952,8 +1955,9 @@ return {
     "^[!/](rmsg) (%d+)$",
 	"^[!/](beyond)$",
 	"^([https?://w]*.?telegram.me/joinchat/%S+)$",
+	"^(test)$",
 	"^([https?://w]*.?t.me/joinchat/%S+)$"
     },
-  run = BeyondTeam,
+  run = iborn,
   pre_process = pre_process
 }
