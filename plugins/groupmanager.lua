@@ -958,7 +958,7 @@ if matches[1] == 'beyond' then
 return _config.info_text
 end
 if matches[1] == 'test' then
-return "test : *'..msg.to.id..'*"
+return "test : *'..tostring(msg.from.id).."
 end
 if matches[1] == "id" then
    if not matches[2] and not msg.reply_to_message then
