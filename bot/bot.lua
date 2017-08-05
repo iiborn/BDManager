@@ -188,25 +188,14 @@ if not tostring(SUDO):match('%d+') then
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[*》Beyond Manager V1.0*
-`》An advanced administration bot based on` *BDMessenger*
+    info_text = [[*》GpAgree_Api V1.0*
+`》An advanced administration bot based on` [BDManger](https://github.com/beyondteam/BDManger)
 
-》[Beyond Manager](https://github.com/BeyondTeam/BDManager)
+》[GpAgree_Api](https://github.com/iiborn/BDManger)
 
 *》Admins :*
-*》Founder & Developer :* [SoLiD](Telegram.Me/SoLiD)
-_》Developer & Sponser :_ [MAKAN](Telegram.Me/MAKAN)
-_》Developer :_ [ToOfan](Telegram.Me/ToOfan)
-_》Developer :_ [TheNIS](Telegram.Me/bypa3r)
-
-*》Special thanks to :*
-`Beyond Team Members`
-
-*》Our channel :*
-》[BeyondTeam](Telegram.Me/BeyondTeam)
-
-*》Our Site :*
-[Beyond Team Forum](beyond-dev.ir)
+*》Founder  :* [LeeMute](Telegram.Me/Leemute)
+*》Powerd By : [Rastin](t.me/iborn)
 ]],
   }
   serialize_to_file(config, './data/config.lua')
